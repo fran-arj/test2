@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('home') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
@@ -15,6 +15,11 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+
+<x-jet-nav-link href="#">
+    Empleados
+</x-jet-nav-link>
+
                 </div>
             </div>
 
@@ -69,6 +74,7 @@
                     </div>
                 @endif
 
+                @auth
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
@@ -121,6 +127,11 @@
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
+                @else
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registro</a>
+                @endauth
+
             </div>
 
             <!-- Hamburger -->
@@ -143,6 +154,7 @@
             </x-jet-responsive-nav-link>
         </div>
 
+        @auth
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
@@ -213,5 +225,18 @@
                 @endif
             </div>
         </div>
+        @else
+        <div class="py-1 border-t border-gray-200">
+            <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                Log in
+            </x-jet-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
+                Registro
+            </x-jet-nav-link>
+
+        </div>
+
+        @endauth
+
     </div>
 </nav>
