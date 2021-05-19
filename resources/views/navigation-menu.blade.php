@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-<x-jet-nav-link href="#">
+<x-jet-nav-link href="{{ route('empleados.index') }}" :active="request()->routeIs('empleados.index')">
     Empleados
 </x-jet-nav-link>
 
@@ -152,6 +152,11 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+
+            <x-jet-nav-link href="{{ route('empleados.index') }}" :active="request()->routeIs('empleados.index')">
+                Empleados
+            </x-jet-nav-link>
+            
         </div>
 
         @auth
