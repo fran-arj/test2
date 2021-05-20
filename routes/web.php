@@ -13,6 +13,8 @@ Route::get('empleados', [EmpleadoController::class, 'index'])->name('empleados.i
 
 Route::get('empleados/create', [EmpleadoController::class, 'create'])->name('empleados.create');
 
+Route::post('empleados/store', [EmpleadoController::class, 'store'])->name('empleados.store');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
