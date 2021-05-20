@@ -20,6 +20,10 @@
     Empleados
 </x-jet-nav-link>
 
+<x-jet-nav-link href="{{ route('empleados.create') }}" :active="request()->routeIs('empleados.create')">
+    Empleados-Agregar
+</x-jet-nav-link>
+
                 </div>
             </div>
 
@@ -156,7 +160,11 @@
             <x-jet-nav-link href="{{ route('empleados.index') }}" :active="request()->routeIs('empleados.index')">
                 Empleados
             </x-jet-nav-link>
-            
+
+            <x-jet-nav-link href="{{ route('empleados.create') }}" :active="request()->routeIs('empleados.create')">
+                Empleados - agregar
+            </x-jet-nav-link>
+
         </div>
 
         @auth

@@ -13,4 +13,9 @@ class EmpleadoController extends Controller
         return view('empleados.index', compact('empleados'));
 
     }
+
+    public function create()
+    {
+        return view('empleados.create');
+    }
 }

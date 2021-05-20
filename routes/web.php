@@ -11,6 +11,8 @@ Route::get('/', function () {
 
 Route::get('empleados', [EmpleadoController::class, 'index'])->name('empleados.index');
 
+Route::get('empleados/create', [EmpleadoController::class, 'create'])->name('empleados.create');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
